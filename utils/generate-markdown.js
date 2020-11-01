@@ -1,6 +1,6 @@
 const tableOfContents = filterData => {
     // destructure data
-    const { installation, projectUse, projectCredits } = filterData;
+    const { installation, projectUse, projectCredits, badges } = filterData;
     // temp array to hold table of contents info
     const tableOfContentsArr = [];
 
@@ -13,6 +13,10 @@ const tableOfContents = filterData => {
     if (projectCredits) {
         tableOfContentsArr.push('* [Credits](#credits)');
     }
+    tableOfContentsArr.push('* [License](#license)')
+    if (badges) {
+        tableOfContentsArr.push('* [Badges](#badges)')
+    }
     return tableOfContentsArr.join('\n')
 }
 
@@ -21,6 +25,8 @@ const installationInput = data => {
         return `## Installation
 ${data.installation}
 `
+    } else {
+        return '';
     }
 }
 
@@ -29,6 +35,8 @@ const usageInput = data => {
         return `## Usage
 ${data.projectUse}
 `
+    } else {
+        return '';
     }
 }
 
@@ -36,6 +44,8 @@ const creditsInput = data => {
     if (data.projectCredits) {
         return `## Credits
 ${data.projectCredits}`
+    } else {
+        return '';
     }
 }
 
@@ -44,6 +54,8 @@ const featuresInput = data => {
         return `## Features
 ${data.projectFeatures}
 `
+    } else {
+        return '';
     }
 }
 
@@ -52,6 +64,8 @@ const contributorInput = data => {
         return `## Contributing
 ${data.projectContributors}
 `
+    } else {
+        return '';
     }
 }
 
@@ -59,12 +73,50 @@ const testInput = data => {
     if (data.projectTests) {
         return `## Tests
 ${data.projectTests}`
+    } else {
+        return '';
+    }
+}
+
+const badgesInput = data => {
+    if (data.badges) {
+        // parse input
+        const badgeArr = data.badges.map(v => v.toLowerCase());
+        // temp array to hold badges
+        const badgeInputArr = [];
+
+        badgeInputArr.push(`## Badges
+`)
+        badgeArr.forEach(function(badge) {
+            if (badge === 'javascript') {
+                badgeInputArr.push(`![javascript](<https://img.shields.io/badge/javascript-%20%20-blue>)`);
+            }
+            if (badge === 'html') {
+                badgeInputArr.push(`![html](https://img.shields.io/badge/HTML-%20%20-blue)`);
+            }
+            if (badge === 'css') {
+                badgeInputArr.push(`![css](https://img.shields.io/badge/CSS-%20%20-blue)`);
+            }
+            if (badge === 'es6') {
+                badgeInputArr.push(`![es6](https://img.shields.io/badge/ES6-%20%20-blue)`);
+            }
+            if (badge === 'jquery') {
+                badgeInputArr.push(`![jquery](https://img.shields.io/badge/jQuery-%20%20-blue)`);
+            }
+            if (badge === 'bootstrap') {
+                badgeInputArr.push(`![bootstrap](https://img.shields.io/badge/Bootstrap-%20%20-blue)`);
+            }
+            if (badge === 'node') {
+                badgeInputArr.push(`![node](https://img.shields.io/badge/Node-%20%20-blue)`);
+            }
+        })
+        return badgeInputArr.join('\n')
     }
 }
   
 module.exports = markdownPage => {
     // destructure user input for each section
-    const { projectTitle, projectDescription, licenses, badges, ...rest } = markdownPage;
+    const { projectTitle, projectDescription, licenses, ...rest } = markdownPage;
 
     return `# ${projectTitle}
 
@@ -74,9 +126,7 @@ ${projectDescription}
 ## Table of Contents
 
 ${tableOfContents(rest)}
-* [License](#license)
-* [Badges](#badges)
-    
+
 ${installationInput(rest)}
 ${usageInput(rest)}
 ${creditsInput(rest)}
@@ -84,9 +134,7 @@ ${creditsInput(rest)}
 ## License
 ${licenses}
 
-## Badges
-${badges}
-
+${badgesInput(rest)}
 ${featuresInput(rest)}
 ${contributorInput(rest)}
 ${testInput(rest)}`;
