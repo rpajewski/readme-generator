@@ -25,15 +25,36 @@ const questions = [
           if (descriptionInput) {
             return true;
           } else {
-            console.log('Please enter your project description!');
+            console.log('Please enter your project description.');
             return false;
           }
         }
       },
       {
         type: 'input',
-        name: 'installation',
-        message: 'Explain how to install your project.',
+        name: 'github',
+        message: 'Provide a link to your GitHub account. (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+              return true;
+            } else {
+              console.log('Please enter your GitHub URL!');
+              return false;
+            }
+          }
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Share your email address. (Required)',
+        validate: emailInput => {
+            if (emailInput) {
+              return true;
+            } else {
+              console.log('Please enter your email!');
+              return false;
+            }
+          }
       },
       {
         type: 'input',
@@ -59,17 +80,10 @@ const questions = [
         }
       },
       {
-        type: 'input',
-        name: 'licenses',
-        message: 'Provide a license. (Required)',
-        validate: licenseInput => {
-          if (licenseInput) {
-            return true;
-          } else {
-            console.log('Please provide a license!');
-            return false;
-          }
-        }
+        type: 'checkbox',
+        name: 'license',
+        message: 'Which license do you want to use? (Check one)',
+        choices: ['MIT', 'ISC', 'Apache']
       },
       {
         type: 'checkbox',

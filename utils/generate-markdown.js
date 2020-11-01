@@ -43,7 +43,8 @@ ${data.projectUse}
 const creditsInput = data => {
     if (data.projectCredits) {
         return `## Credits
-${data.projectCredits}`
+${data.projectCredits}
+`
     } else {
         return '';
     }
@@ -78,6 +79,31 @@ ${data.projectTests}`
     }
 }
 
+const licenseInput = data => {
+    if (data.license) {
+        // parse input
+        const licenseArr = data.license.map(v => v.toLowerCase());
+        // temp array to hold badges
+        const licenseInputArr = [];
+
+        licenseInputArr.push(`## License
+`)
+        licenseArr.forEach(function(license) {
+            if (license === 'mit') {
+                licenseInputArr.push(`![mit](https://img.shields.io/badge/license-MIT-green)`);
+            }
+            if (license === 'isc') {
+                licenseInputArr.push(`![isc](https://img.shields.io/badge/license-ISC-green)`);
+            }
+            if (license === 'apache') {
+                licenseInputArr.push(`![apache](https://img.shields.io/badge/license-Apache-green)`);
+            }
+        })
+        licenseInputArr.push('\n')
+        return licenseInputArr.join('\n')
+    }
+}
+
 const badgesInput = data => {
     if (data.badges) {
         // parse input
@@ -89,7 +115,7 @@ const badgesInput = data => {
 `)
         badgeArr.forEach(function(badge) {
             if (badge === 'javascript') {
-                badgeInputArr.push(`![javascript](<https://img.shields.io/badge/javascript-%20%20-blue>)`);
+                badgeInputArr.push(`![javascript](https://img.shields.io/badge/javascript-%20%20-blue)`);
             }
             if (badge === 'html') {
                 badgeInputArr.push(`![html](https://img.shields.io/badge/HTML-%20%20-blue)`);
@@ -110,30 +136,31 @@ const badgesInput = data => {
                 badgeInputArr.push(`![node](https://img.shields.io/badge/Node-%20%20-blue)`);
             }
         })
+        badgeInputArr.push('\n')
         return badgeInputArr.join('\n')
     }
 }
   
 module.exports = markdownPage => {
     // destructure user input for each section
-    const { projectTitle, projectDescription, licenses, ...rest } = markdownPage;
+    const { projectTitle, projectDescription, github, email, licenses, ...rest } = markdownPage;
 
     return `# ${projectTitle}
 
 ## Description
 ${projectDescription}
 
+Contact Info:
+GitHub: ${github}
+Email: ${email}
+
 ## Table of Contents
 
 ${tableOfContents(rest)}
-
 ${installationInput(rest)}
 ${usageInput(rest)}
 ${creditsInput(rest)}
-
-## License
-${licenses}
-
+${licenseInput(rest)}
 ${badgesInput(rest)}
 ${featuresInput(rest)}
 ${contributorInput(rest)}
