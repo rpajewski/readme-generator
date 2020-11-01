@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const writeFile = require('./utils/generate-md.js');
-const generateMd = require('./utils/generate-markdown');
+const writeFile = require('./utils/write-markdown.js');
+const generateMarkdown = require('./utils/generate-markdown');
 
 // array of questions for user
 const questions = [
@@ -38,15 +38,7 @@ const questions = [
       {
         type: 'input',
         name: 'projectUse',
-        message: 'Provide examples for your projects uses. (Required)',
-        validate: usageInput => {
-          if (usageInput) {
-            return true;
-          } else {
-            console.log('Please provide instructions or examples for use!');
-            return false;
-          }
-        }
+        message: 'Provide examples for your projects uses.',
       },
       {
         type: 'confirm',
@@ -111,7 +103,7 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'projectContributing',
+        name: 'projectContributors',
         message: 'Please explain how other developers can contribute to your project.',
         when: ({ confirmContributing }) => {
           if (confirmContributing) {
@@ -141,26 +133,27 @@ const questions = [
       }
 ];
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
 // function to initialize program
-function init() {
+const init = readMeData => {
+    return inquirer.prompt(questions)
+    .then(readMeData => {
+        return readMeData;
+    })
+};
 
-}
 
 // function call to initialize program
-init();
-
-project title 
-description 
-table of contents 
-installation 
-usage 
-credits 
-license 
-badges 
-features 
-contributing 
-tests 
+init()
+    .then(readMeData => {
+        console.log(readMeData);
+        return generateMarkdown(readMeData);
+    })
+    .then(markdownPage => {
+        return writeFile(markdownPage);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
