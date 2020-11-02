@@ -1,11 +1,11 @@
-# readme generator ![mit](https://img.shields.io/badge/license-MIT-green)
+# README Generator   ![mit](https://img.shields.io/badge/license-MIT-green)
 
 ## Description
-generates readmes from command line prompts
+Use command line prompts through Inquirer to generate a professional README file with ease.
 
 Contact Info:
-GitHub: rpajewski.github
-Email: fakeemail@gmail.com
+GitHub: https://github.com/rpajewski/readme-generator
+Email: inputEmailHere@gmail.com
 
 ## Table of Contents
 
@@ -13,12 +13,15 @@ Email: fakeemail@gmail.com
 * [Credits](#credits)
 * [License](#license)
 * [Badges](#badges)
+* [Features](#features)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
 ## Usage
-it makes a md for you
+Use Inquirer prompts to quickly generate a markdown file.
 
 ## Credits
-my mom
+Bootcamp Spot
 
 ## License
 ,Copyright (c)
@@ -44,19 +47,15 @@ SOFTWARE.,
 ## Badges
 
 ![javascript](https://img.shields.io/badge/javascript-%20%20-blue)
-![html](https://img.shields.io/badge/HTML-%20%20-blue)
-![css](https://img.shields.io/badge/CSS-%20%20-blue)
 ![es6](https://img.shields.io/badge/ES6-%20%20-blue)
-![jquery](https://img.shields.io/badge/jQuery-%20%20-blue)
-![bootstrap](https://img.shields.io/badge/Bootstrap-%20%20-blue)
 ![node](https://img.shields.io/badge/Node-%20%20-blue)
 
 
 ## Features
-it does other cool things too like add badges
+This app has the ability to automatically display the copyright information based on your chosen license.
 
 ## Contributing
-make it better
+Feel free to use this app as is or improve upon it.
 
 ## Tests
-test it
+Test section for display purposes.

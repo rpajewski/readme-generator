@@ -1,6 +1,7 @@
+// table of contents generated
 const tableOfContents = filterData => {
     // destructure data
-    const { installation, projectUse, projectCredits, badges } = filterData;
+    const { installation, projectUse, projectCredits, badges, projectFeatures, projectContributors, projectTests } = filterData;
     // temp array to hold table of contents info
     const tableOfContentsArr = [];
 
@@ -13,13 +14,23 @@ const tableOfContents = filterData => {
     if (projectCredits) {
         tableOfContentsArr.push('* [Credits](#credits)');
     }
-    tableOfContentsArr.push('* [License](#license)')
+    tableOfContentsArr.push('* [License](#license)');
     if (badges) {
-        tableOfContentsArr.push('* [Badges](#badges)')
+        tableOfContentsArr.push('* [Badges](#badges)');
+    }
+    if (projectFeatures) {
+        tableOfContentsArr.push('* [Features](#features)');
+    }
+    if (projectContributors) {
+        tableOfContentsArr.push('* [Contributing](#contributing)')
+    }
+    if (projectTests) {
+        tableOfContentsArr.push('* [Tests](#tests)')
     }
     return tableOfContentsArr.join('\n')
 }
 
+// display installation instruction
 const installationInput = data => {
     if (data.installation) {
         return `## Installation
@@ -30,6 +41,7 @@ ${data.installation}
     }
 }
 
+// display usage
 const usageInput = data => {
     if (data.projectUse) {
         return `## Usage
@@ -40,6 +52,7 @@ ${data.projectUse}
     }
 }
 
+// display any credits
 const creditsInput = data => {
     if (data.projectCredits) {
         return `## Credits
@@ -50,6 +63,7 @@ ${data.projectCredits}
     }
 }
 
+// display any additional features
 const featuresInput = data => {
     if (data.projectFeatures) {
         return `## Features
@@ -60,6 +74,7 @@ ${data.projectFeatures}
     }
 }
 
+// display any contributor instructions
 const contributorInput = data => {
     if (data.projectContributors) {
         return `## Contributing
@@ -70,6 +85,7 @@ ${data.projectContributors}
     }
 }
 
+// display any test results
 const testInput = data => {
     if (data.projectTests) {
         return `## Tests
@@ -79,6 +95,7 @@ ${data.projectTests}`
     }
 }
 
+// badge for license displayed near project title
 const licenseBadgeInput = data => {
     if (data.license) {
         // parse input
@@ -101,6 +118,7 @@ const licenseBadgeInput = data => {
     }
 }
 
+// license notice added to page based on user choice
 const licenseInput = data => {
     if (data.license) {
         // parse input
@@ -168,6 +186,7 @@ limitations under the License.`);
     }
 }
 
+// display badges based on code base used in project
 const badgesInput = data => {
     if (data.badges) {
         // parse input
@@ -204,12 +223,13 @@ const badgesInput = data => {
         return badgeInputArr.join('\n')
     }
 }
-  
+
+// generate markdown
 module.exports = markdownPage => {
     // destructure user input for each section
     const { projectTitle, projectDescription, github, email, licenses, ...rest } = markdownPage;
 
-    return `# ${projectTitle} ${licenseBadgeInput(rest)}
+    return `# ${projectTitle}   ${licenseBadgeInput(rest)}
 
 ## Description
 ${projectDescription}
