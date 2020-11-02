@@ -58,6 +58,11 @@ const questions = [
       },
       {
         type: 'input',
+        name: 'installation',
+        message: 'Provide details on installation (if any).',
+      },
+      {
+        type: 'input',
         name: 'projectUse',
         message: 'Provide examples for your projects uses.',
       },

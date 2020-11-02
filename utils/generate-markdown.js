@@ -241,6 +241,7 @@ Email: ${email}
 ## Table of Contents
 
 ${tableOfContents(rest)}
+
 ${installationInput(rest)}
 ${usageInput(rest)}
 ${creditsInput(rest)}

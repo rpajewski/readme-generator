@@ -5,10 +5,11 @@ Use command line prompts through Inquirer to generate a professional README file
 
 Contact Info:
 GitHub: https://github.com/rpajewski/readme-generator
-Email: inputEmailHere@gmail.com
+Email: insertEmailHere@gmail.com
 
 ## Table of Contents
 
+* [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
@@ -17,6 +18,9 @@ Email: inputEmailHere@gmail.com
 * [Contributing](#contributing)
 * [Tests](#tests)
 
+## Installation
+npm install inquirer
+
 ## Usage
 Use Inquirer prompts to quickly generate a markdown file.
 
@@ -24,7 +28,7 @@ Use Inquirer prompts to quickly generate a markdown file.
 Bootcamp Spot
 
 ## License
-,Copyright (c)
+Copyright (c)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,7 +46,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.,
+SOFTWARE.
 
 ## Badges
 
@@ -58,4 +62,4 @@ This app has the ability to automatically display the copyright information base
 Feel free to use this app as is or improve upon it.
 
 ## Tests
-Test section for display purposes.
+Test section for display purposes only.

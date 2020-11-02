@@ -5,10 +5,11 @@ Use command line prompts through Inquirer to generate a professional README file
 
 Contact Info:
 GitHub: https://github.com/rpajewski/readme-generator
-Email: inputEmailHere@gmail.com
+Email: insertEmailHere@gmail.com
 
 ## Table of Contents
 
+* [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
@@ -16,6 +17,9 @@ Email: inputEmailHere@gmail.com
 * [Features](#features)
 * [Contributing](#contributing)
 * [Tests](#tests)
+
+## Installation
+npm install inquirer
 
 ## Usage
 Use Inquirer prompts to quickly generate a markdown file.
@@ -58,4 +62,4 @@ This app has the ability to automatically display the copyright information base
 Feel free to use this app as is or improve upon it.
 
 ## Tests
-Test section for display purposes.
+Test section for display purposes only.
