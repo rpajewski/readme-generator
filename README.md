@@ -61,5 +61,5 @@ This app has the ability to automatically display the copyright information base
 ## Contributing
 Feel free to use this app as is or improve upon it.
 
-## Tests
-Test section for display purposes only.
+## Video
+[![WATCH HOW IT WORKS](https://user-images.githubusercontent.com/70237837/97828676-6aa38580-1c8d-11eb-99dd-cc5f03a13db6.png)](https://drive.google.com/file/d/1pPtcKX2h7cuHYSuAff6HH_DLDXbfovns/view?usp=sharing)
